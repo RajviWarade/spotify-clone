@@ -1,15 +1,12 @@
 import React from "react";
 import Layout from "../../components/Layout/Layout";
-import styles from "./Home.module.css";
-import Navigation from "../../components/Mainbar/navigation";
-import Section from "../../components/Mainbar/section";
+import Card from "../../components/Card/card";
 import girlImg from "../../assets/girl.png";
 import playmusic from "../../assets/playmusic.png";
 import musictable from "../../assets/musictable.png";
-import Card from "../../components/Card/card";
-import { NavLink } from "react-router-dom";
+import styles from "../Featured/Featured.module.css";
 
-const Home = () => {
+const Featured = () => {
   const data = [
     {
       featuredImg: girlImg,
@@ -31,17 +28,8 @@ const Home = () => {
   return (
     <>
       <Layout>
-        <Navigation />
-        <Section
-          heading="Featured Playlist"
-          rightheading={
-            <NavLink to="/featured-playlist" className={styles.headingtwo}>
-              See All
-            </NavLink>
-          }
-        />
         <div className={styles.cardContainer}>
-          {data.slice(0, 3).map((cardData, i) => {
+          {data.map((cardData, i) => {
             return (
               <div className={styles.mainContainer} key={i}>
                 <Card
@@ -54,7 +42,33 @@ const Home = () => {
           })}
         </div>
 
-        <Section heading="This Week Songs" rightheading="See All" />
+        <div className={styles.cardContainer}>
+          {data.map((cardData, i) => {
+            return (
+              <div className={styles.mainContainer} key={i}>
+                <Card
+                  imageSrc={cardData.featuredImg}
+                  playlistName={cardData.playlistName}
+                  description={cardData.desc}
+                />
+              </div>
+            );
+          })}
+        </div>
+
+        <div className={styles.cardContainer}>
+          {data.map((cardData, i) => {
+            return (
+              <div className={styles.mainContainer} key={i}>
+                <Card
+                  imageSrc={cardData.featuredImg}
+                  playlistName={cardData.playlistName}
+                  description={cardData.desc}
+                />
+              </div>
+            );
+          })}
+        </div>
 
         <div className={styles.cardContainer}>
           {data.map((cardData, i) => {
@@ -74,4 +88,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default Featured;
