@@ -5,7 +5,6 @@ import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
 import LyricsOutlinedIcon from "@mui/icons-material/LyricsOutlined";
 import LogoutIcon from "@mui/icons-material/Logout";
 import styles from "./Sidemenu.module.css";
-
 import { NavLink } from "react-router-dom";
 
 const Sidemenu = () => {
@@ -51,7 +50,9 @@ const Sidemenu = () => {
 
       <div className={styles.logout}>
         <LogoutIcon />
-        <p>Logout</p>
+        <NavLink to="/" className={styles.logoutContent}>
+          Logout
+        </NavLink>
       </div>
     </>
   );

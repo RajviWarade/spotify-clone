@@ -53,12 +53,16 @@
 .logout {
   display: flex;
   position: relative;
-  top: 43vh;
+  top: 45%;
   margin-left: 20px;
+  cursor: pointer;
 }
-.logout p {
+.logoutContent {
   margin-left: 10px;
   font-family: "Raleway-SemiBold", Helvetica;
   margin-top: 3px;
   font-weight: lighter;
+  text-decoration: none;
+  color: white;
+  font-size: 20px;
 }
