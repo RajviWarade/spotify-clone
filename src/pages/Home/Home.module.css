@@ -1,0 +1,9 @@
+.mainContainer {
+  display: flex;
+  padding: 30px;
+}
+
+.cardContainer {
+  display: flex;
+  justify-content: space-around;
+}

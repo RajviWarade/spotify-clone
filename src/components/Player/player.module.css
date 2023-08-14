@@ -1,0 +1,51 @@
+.player {
+  background-color: rgb(53, 53, 53);
+  height: 10vh;
+  color: white;
+}
+.container {
+  display: flex;
+  padding: 30px;
+  justify-content: space-between;
+}
+.details {
+  display: flex;
+}
+
+.playmusic {
+  display: flex;
+}
+.sliderline {
+  /* background-color: white; */
+  color: white;
+}
+
+.details h4 {
+  font-family: "Raleway-Medium", Helvetica;
+  font-size: 15px;
+  font-weight: lighter;
+  margin-left: 13px;
+  margin-top: 0px;
+}
+
+.details h6 {
+  font-family: "Raleway-Medium", Helvetica;
+  font-size: 10px;
+  font-weight: lighter;
+  margin-left: 13px;
+}
+.playmusic {
+  display: flex;
+  justify-content: space-around;
+  width: 55%;
+}
+.playmusic p {
+  font-family: "Raleway-Medium", Helvetica;
+  font-size: 16px;
+  margin-top: 5px;
+  padding: 0 20px;
+}
+.search {
+  position: relative;
+  left: -3.5%;
+}

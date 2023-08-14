@@ -1,0 +1,17 @@
+.heading {
+  color: white;
+  font-family: "Raleway-SemiBold", Helvetica;
+  font-size: 20px;
+  font-weight: 200;
+  margin-top: -25px;
+}
+
+.headingtwo {
+  color: #1ed760;
+  font-family: "Raleway-SemiBold", Helvetica;
+  font-size: 15px;
+  font-weight: 200;
+  margin-top: -25px;
+  position: relative;
+  left: 81%;
+}

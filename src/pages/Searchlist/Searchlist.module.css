@@ -1,0 +1,59 @@
+.container {
+  display: flex;
+  width: 80%;
+  background-color: #2d2d2d;
+  padding: 10px;
+  border-radius: 25px;
+  margin-top: 40px;
+  position: relative;
+  left: 10%;
+}
+.input {
+  color: white !important;
+  font-family: "Raleway-Medium", Helvetica;
+  width: 100%;
+}
+.icon {
+  margin-right: 10px;
+  margin-top: 5px;
+  color: white;
+}
+.gap {
+  padding: 40px;
+}
+.image {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.details {
+  display: flex;
+  margin-top: 20px;
+}
+.details h4 {
+  font-family: "Raleway-Medium", Helvetica;
+  font-size: 15px;
+  font-weight: lighter;
+  margin-left: 13px;
+  margin-top: 0px;
+}
+
+.details h6 {
+  font-family: "Raleway-Medium", Helvetica;
+  font-size: 10px;
+  font-weight: lighter;
+  margin-left: 13px;
+}
+.itemContainer {
+  display: flex;
+  justify-content: space-between;
+}
+.listnum {
+  position: relative;
+  right: -35%;
+  margin-top: 15px;
+}
+.listicon {
+  position: relative;
+  right: 6.5%;
+  margin-top: 12px;
+}

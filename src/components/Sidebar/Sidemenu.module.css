@@ -1,0 +1,64 @@
+.link {
+  display: flex;
+  padding: 10px;
+  margin-bottom: 10px;
+  text-decoration: none;
+}
+
+.active {
+  background-color: white;
+  border-radius: 0 20px 20px 0;
+}
+
+.active h2 {
+  color: #1ed760;
+}
+
+.active > .icon {
+  color: #1ed760;
+}
+
+.icon {
+  margin: 0 10px;
+  color: white;
+}
+
+.menuname {
+  color: white;
+  font-family: "Raleway-SemiBold", Helvetica;
+  font-size: 20px;
+  font-weight: lighter;
+}
+.containerHome {
+  display: flex;
+  justify-content: flex-start;
+  background-color: white;
+  color: #1ed760;
+  padding: 10px;
+  border-radius: 0 20px 20px 0;
+  margin-bottom: 10px;
+}
+
+.iconHome {
+  margin: 0 10px;
+  color: #1ed760;
+}
+
+.menunameHome {
+  color: #1ed760;
+  font-family: "Raleway-SemiBold", Helvetica;
+  font-size: 20px;
+  font-weight: lighter;
+}
+.logout {
+  display: flex;
+  position: relative;
+  top: 43vh;
+  margin-left: 20px;
+}
+.logout p {
+  margin-left: 10px;
+  font-family: "Raleway-SemiBold", Helvetica;
+  margin-top: 3px;
+  font-weight: lighter;
+}

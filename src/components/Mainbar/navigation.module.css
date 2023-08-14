@@ -1,0 +1,17 @@
+.navbar {
+  display: flex;
+  width: 100%;
+}
+.navbar h1 {
+  color: #1ed760;
+  font-size: 45px;
+  font-family: "Raleway-SemiBold", Helvetica;
+  font-weight: 700;
+  margin-top: 10px;
+}
+.navbar > div {
+  display: flex;
+  position: relative;
+  left: 65%;
+  top: -12px;
+}

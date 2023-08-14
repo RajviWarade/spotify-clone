@@ -1,0 +1,33 @@
+.profileContainer {
+  display: flex;
+}
+.mainContainer {
+  padding: 40px;
+}
+.image {
+  height: 40vh;
+  margin-right: 40px;
+  width: 80%;
+  background-color: #2d2d2d;
+  padding: 60px;
+  margin-top: 30px;
+}
+h1 {
+  font-family: "Raleway-SemiBold", Helvetica;
+  font-size: 40px;
+  font-weight: 400;
+}
+h4 {
+  margin-top: 40px;
+  font-family: "Raleway-SemiBold", Helvetica;
+  font-size: 30px;
+  font-weight: 100;
+}
+h6 {
+  margin-top: 10px;
+  font-family: "Raleway-SemiBold", Helvetica;
+  font-size: 20px;
+  font-weight: lighter;
+  color: #959393;
+  margin-bottom: 20px;
+}

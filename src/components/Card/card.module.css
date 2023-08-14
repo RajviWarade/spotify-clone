@@ -1,0 +1,24 @@
+.card {
+  width: 90%;
+  background-color: #242424;
+  border-radius: 20px;
+  margin-top: -10%;
+  /* margin: 0 1rem; */
+}
+.card img {
+  width: 100%;
+  border-radius: 20px 20px 0 0;
+}
+.frame {
+  padding: 10px;
+}
+.textname {
+  color: white;
+  font-family: "Raleway-SemiBold", Helvetica;
+  margin-bottom: 5px;
+}
+.para {
+  font-family: "Raleway-SemiBold", Helvetica;
+  color: #ffffff80;
+  font-size: 11px;
+}
