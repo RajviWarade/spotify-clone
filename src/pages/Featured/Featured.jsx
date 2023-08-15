@@ -1,90 +1,40 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Layout from "../../components/Layout/Layout";
 import Card from "../../components/Card/card";
-import girlImg from "../../assets/girl.png";
-import playmusic from "../../assets/playmusic.png";
-import musictable from "../../assets/musictable.png";
 import styles from "../Featured/Featured.module.css";
+import axios from "axios";
 
 const Featured = () => {
-  const data = [
-    {
-      featuredImg: girlImg,
-      playlistName: "Playlist 1",
-      desc: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Consectetur at nam, temporibus quis facere reiciendis.",
-    },
-    {
-      featuredImg: playmusic,
-      playlistName: "Playlist 2",
-      desc: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Consectetur at nam, temporibus quis facere reiciendis.",
-    },
-    {
-      featuredImg: musictable,
-      playlistName: "Playlist 3",
-      desc: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Consectetur at nam, temporibus quis facere reiciendis.",
-    },
-  ];
+  const [featuredPlaylist, setFeaturedPlaylist] = useState([]);
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+
+    const config = {
+      headers: { Authorization: `Bearer ${token}` },
+    };
+
+    axios
+      .get("https://api.spotify.com/v1/browse/featured-playlists", config)
+      .then((res) => setFeaturedPlaylist(res?.data?.playlists?.items))
+      .catch((error) => console.log(error));
+  });
 
   return (
-    <>
-      <Layout>
-        <div className={styles.cardContainer}>
-          {data.map((cardData, i) => {
-            return (
-              <div className={styles.mainContainer} key={i}>
-                <Card
-                  imageSrc={cardData.featuredImg}
-                  playlistName={cardData.playlistName}
-                  description={cardData.desc}
-                />
-              </div>
-            );
-          })}
-        </div>
-
-        <div className={styles.cardContainer}>
-          {data.map((cardData, i) => {
-            return (
-              <div className={styles.mainContainer} key={i}>
-                <Card
-                  imageSrc={cardData.featuredImg}
-                  playlistName={cardData.playlistName}
-                  description={cardData.desc}
-                />
-              </div>
-            );
-          })}
-        </div>
-
-        <div className={styles.cardContainer}>
-          {data.map((cardData, i) => {
-            return (
-              <div className={styles.mainContainer} key={i}>
-                <Card
-                  imageSrc={cardData.featuredImg}
-                  playlistName={cardData.playlistName}
-                  description={cardData.desc}
-                />
-              </div>
-            );
-          })}
-        </div>
-
-        <div className={styles.cardContainer}>
-          {data.map((cardData, i) => {
-            return (
-              <div className={styles.mainContainer} key={i}>
-                <Card
-                  imageSrc={cardData.featuredImg}
-                  playlistName={cardData.playlistName}
-                  description={cardData.desc}
-                />
-              </div>
-            );
-          })}
-        </div>
-      </Layout>
-    </>
+    <Layout>
+      <div className={styles.cardContainer}>
+        {featuredPlaylist.map((cardData, i) => {
+          return (
+            <div className={styles.mainContainer} key={i}>
+              <Card
+                imageSrc={cardData.images[0].url}
+                playlistName={cardData.name}
+                description={cardData.description}
+              />
+            </div>
+          );
+        })}
+      </div>
+    </Layout>
   );
 };
 

@@ -18,3 +18,64 @@
   margin-top: 5px;
   color: white;
 }
+.gap {
+  padding: 40px;
+}
+.image {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  width: 300px;
+  border-radius: 10px;
+}
+.details {
+  display: flex;
+  margin-top: 20px;
+}
+.details h4 {
+  font-family: "Raleway-Medium", Helvetica;
+  font-size: 15px;
+  font-weight: lighter;
+  margin-left: 13px;
+  margin-top: 0px;
+}
+
+.details h6 {
+  font-family: "Raleway-Medium", Helvetica;
+  font-size: 10px;
+  font-weight: lighter;
+  margin-left: 13px;
+}
+.itemContainer {
+  display: flex;
+  justify-content: space-between;
+}
+.listnum {
+  position: relative;
+  right: -20%;
+  margin-top: 15px;
+}
+.listicon {
+  position: relative;
+  right: 6.5%;
+  margin-top: 12px;
+}
+.topResultsContainer {
+  display: flex;
+  justify-content: space-between;
+}
+.stylish {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 70vh;
+}
+.stylish p {
+  font-family: cursive;
+  color: #1ed760;
+  font-size: 50px;
+  text-align: center;
+}
+.stylish span {
+  color: white;
+  font-size: 60px;
+}

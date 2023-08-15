@@ -1,7 +1,7 @@
-import React from "react";
-import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined';
-import LockIcon from '@mui/icons-material/Lock';
-import { useNavigate } from "react-router-dom";
+import React, { useEffect } from "react";
+import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
+import LockIcon from "@mui/icons-material/Lock";
+import { Link, useNavigate } from "react-router-dom";
 import {
   Button,
   Container,
@@ -10,9 +10,9 @@ import {
   Typography,
   FormGroup,
   Box,
-
 } from "@mui/material";
 import styled from "@emotion/styled";
+import { AlternateEmail } from "@mui/icons-material";
 
 const BigDiv = styled(Container)`
   display: flex;
@@ -30,10 +30,10 @@ const LoginContainer = styled(Paper)`
 `;
 
 const LogoContainer = styled(Box)`
-    display: flex;
+  display: flex;
   flex-direction: column;
-  justify-content:center;
-  align-items:center;
+  justify-content: center;
+  align-items: center;
 `;
 
 const LoginName = styled(Typography)`
@@ -62,26 +62,67 @@ const LoginBtn = styled(Button)`
 const LoginBox = () => {
   const navigate = useNavigate();
 
-  const handleLogin = () => {
-    navigate('/home');
-  }
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (token) {
+      navigate("/home");
+    }
 
+    const urlAfterHash = window.location.hash.slice(1);
+
+    if (urlAfterHash) {
+      const tokenDetails = urlAfterHash.split("&");
+      const tokenPair = tokenDetails[0];
+      const tokenValue = tokenPair.split("=")[1];
+      localStorage.setItem("token", tokenValue);
+
+      navigate("/home");
+    }
+  });
+
+  const baseURI = "https://accounts.spotify.com";
+  const clientId = "bc4bd0c283d44bc1a7b458fdcdabd5ee";
+  const redirectUri = "http://localhost:5173/";
+  const scopes = [
+    "playlist-read-private",
+    "playlist-read-collaborative",
+    "user-read-playback-state",
+    "user-modify-playback-state",
+    "user-read-currently-playing",
+    "user-read-email",
+    "user-read-private",
+  ];
+
+  const spotifyAuthLink = `${baseURI}/authorize?client_id=${clientId}&redirect_uri=${redirectUri}&response_type=token&scope=${scopes}`;
 
   return (
     <BigDiv>
       <LoginContainer elevation={3}>
         <LogoContainer>
-            <img src="src/assets/logo.png" alt="spotify logo" />
+          <img src="src/assets/logo.png" alt="spotify logo" />
         </LogoContainer>
-
 
         <LoginName>Login</LoginName>
 
         <FormGroup>
-        <InputBox startAdornment={<AccountCircleOutlinedIcon sx={{padding: "5px", fontSize: "20px", }} />} placeholder="Username" />
-        <InputBox startAdornment={<LockIcon sx={{padding: "5px", fontSize: "20px", }} />} placeholder="Password" />
+          <InputBox
+            startAdornment={
+              <AccountCircleOutlinedIcon
+                sx={{ padding: "5px", fontSize: "20px" }}
+              />
+            }
+            placeholder="Username"
+          />
+          <InputBox
+            startAdornment={
+              <LockIcon sx={{ padding: "5px", fontSize: "20px" }} />
+            }
+            placeholder="Password"
+          />
 
-        <LoginBtn variant="contained" onClick={handleLogin}>Log in</LoginBtn>
+          <Link to={spotifyAuthLink} style={{ margin: "auto" }}>
+            <LoginBtn variant="contained">Login With Spotify!</LoginBtn>
+          </Link>
         </FormGroup>
       </LoginContainer>
     </BigDiv>

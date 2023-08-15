@@ -5,7 +5,7 @@ import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
 import LyricsOutlinedIcon from "@mui/icons-material/LyricsOutlined";
 import LogoutIcon from "@mui/icons-material/Logout";
 import styles from "./Sidemenu.module.css";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 
 const Sidemenu = () => {
   const menuItems = [
@@ -31,6 +31,13 @@ const Sidemenu = () => {
     },
   ];
 
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    navigate("/");
+  };
+
   return (
     <>
       {menuItems.map((menuItem, i) => {
@@ -48,11 +55,9 @@ const Sidemenu = () => {
         );
       })}
 
-      <div className={styles.logout}>
+      <div className={styles.logout} onClick={handleLogout}>
         <LogoutIcon />
-        <NavLink to="/" className={styles.logoutContent}>
-          Logout
-        </NavLink>
+        <span className={styles.logoutContent}>Logout</span>
       </div>
     </>
   );

@@ -1,11 +1,9 @@
-.mainContainer {
-  display: flex;
-  padding: 30px;
-}
-
 .cardContainer {
   display: flex;
+  padding: 30px;
+  justify-content: space-between;
 }
+
 .headingtwo {
   color: #1ed760;
   font-family: "Raleway-SemiBold", Helvetica;

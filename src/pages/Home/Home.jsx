@@ -1,32 +1,40 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Layout from "../../components/Layout/Layout";
 import styles from "./Home.module.css";
 import Navigation from "../../components/Mainbar/Navigation/navigation";
 import Section from "../../components/Mainbar/Section/section";
-import girlImg from "../../assets/girl.png";
-import playmusic from "../../assets/playmusic.png";
-import musictable from "../../assets/musictable.png";
 import Card from "../../components/Card/card";
 import { NavLink } from "react-router-dom";
+import axios from "axios";
 
 const Home = () => {
-  const data = [
-    {
-      featuredImg: girlImg,
-      playlistName: "Playlist 1",
-      desc: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Consectetur at nam, temporibus quis facere reiciendis.",
-    },
-    {
-      featuredImg: playmusic,
-      playlistName: "Playlist 2",
-      desc: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Consectetur at nam, temporibus quis facere reiciendis.",
-    },
-    {
-      featuredImg: musictable,
-      playlistName: "Playlist 3",
-      desc: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Consectetur at nam, temporibus quis facere reiciendis.",
-    },
-  ];
+  const [featuredPlaylists, setFeaturedPlaylists] = useState([]);
+  const [weekSongs, setWeekSongs] = useState([]);
+
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+
+    const config = {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    };
+
+    axios
+      .get("https://api.spotify.com/v1/browse/featured-playlists", config)
+      .then((res) => {
+        setFeaturedPlaylists(res?.data?.playlists?.items);
+      })
+      .catch((err) => console.log(err));
+
+    axios
+      .get(
+        "https://api.spotify.com/v1/search?q=week&type=track%2Calbum",
+        config
+      )
+      .then((res) => setWeekSongs(res.data.albums.items))
+      .catch((error) => console.log(error));
+  }, []);
 
   return (
     <>
@@ -41,13 +49,14 @@ const Home = () => {
           }
         />
         <div className={styles.cardContainer}>
-          {data.slice(0, 3).map((cardData, i) => {
+          {featuredPlaylists.slice(0, 4).map((playlist, i) => {
             return (
               <div className={styles.mainContainer} key={i}>
                 <Card
-                  imageSrc={cardData.featuredImg}
-                  playlistName={cardData.playlistName}
-                  description={cardData.desc}
+                  key={playlist.id}
+                  imageSrc={playlist?.images[0]?.url}
+                  playlistName={playlist?.name}
+                  description={playlist?.description}
                 />
               </div>
             );
@@ -57,15 +66,14 @@ const Home = () => {
         <Section heading="This Week Songs" rightheading="See All" />
 
         <div className={styles.cardContainer}>
-          {data.map((cardData, i) => {
+          {weekSongs.slice(0, 4).map((cardData, i) => {
             return (
-              <div className={styles.mainContainer} key={i}>
-                <Card
-                  imageSrc={cardData.featuredImg}
-                  playlistName={cardData.playlistName}
-                  description={cardData.desc}
-                />
-              </div>
+              <Card
+                key={cardData.id}
+                imageSrc={cardData.images[0].url}
+                playlistName={cardData.name}
+                description={cardData.artists[0].name}
+              />
             );
           })}
         </div>
