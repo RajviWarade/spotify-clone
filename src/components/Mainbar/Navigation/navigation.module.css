@@ -15,3 +15,7 @@
   left: 65%;
   top: -12px;
 }
+.mainContainer {
+  display: flex;
+  padding: 30px;
+}

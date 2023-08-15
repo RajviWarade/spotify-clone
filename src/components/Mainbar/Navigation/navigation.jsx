@@ -1,14 +1,13 @@
 import React from "react";
 import NotificationsIcon from "@mui/icons-material/Notifications";
 import { Avatar } from "@mui/material";
-import mainstyles from "../../pages/Home/Home.module.css";
-import navstyles from "../Mainbar/navigation.module.css";
+import styles from "./navigation.module.css";
 import { NavLink } from "react-router-dom";
 
 const navigation = () => {
   return (
-    <div className={mainstyles.mainContainer}>
-      <div className={navstyles.navbar}>
+    <div className={styles.mainContainer}>
+      <div className={styles.navbar}>
         <h1>Good Evening!</h1>
 
         <div>

@@ -1,39 +1,31 @@
 import React from "react";
 import Layout from "../../components/Layout/Layout";
-import searchStyles from "../Searchlist/Searchlist.module.css";
-import iconStyles from "../Searchlist/Searchlist.module.css";
-import inputStyles from "../Searchlist/Searchlist.module.css";
+import Avatar from "@mui/material/Avatar";
 import SearchIcon from "@mui/icons-material/Search";
 import InputBase from "@mui/material/InputBase";
 import arrahman from "../../assets/arrahman.png";
-import imageStyles from "../Searchlist/Searchlist.module.css";
-import gapStyles from "../Searchlist/Searchlist.module.css";
-import musicStyles from "../Searchlist/Searchlist.module.css";
-import itemsStyles from "../Searchlist/Searchlist.module.css";
-import listiconStyles from "../Searchlist/Searchlist.module.css";
-import listnumStyles from "../Searchlist/Searchlist.module.css";
-import Avatar from "@mui/material/Avatar";
 import PlayArrowIcon from "@mui/icons-material/PlayArrow";
+import styles from "../Searchlist/Searchlist.module.css";
 
 const Searchlist = () => {
   return (
     <>
       <Layout>
-        <div className={searchStyles.container}>
-          <SearchIcon className={iconStyles.icon} />
+        <div className={styles.container}>
+          <SearchIcon className={styles.icon} />
           <InputBase
             placeholder="Search for artists, music, genres etc..."
-            className={inputStyles.input}
+            className={styles.input}
           />
         </div>
 
-        <div className={gapStyles.gap}>
+        <div className={styles.gap}>
           <h1>Top Results</h1>
-          <img src={arrahman} className={imageStyles.image} />
+          <img src={arrahman} className={styles.image} />
           <h1>Songs</h1>
 
-          <div className={itemsStyles.itemContainer}>
-            <div className={musicStyles.details}>
+          <div className={styles.itemContainer}>
+            <div className={styles.details}>
               <Avatar
                 variant="square"
                 alt="Cindy Baker"
@@ -45,12 +37,12 @@ const Searchlist = () => {
               </div>
             </div>
 
-            <p className={listnumStyles.listnum}>4.16</p>
-            <PlayArrowIcon className={listiconStyles.listicon} />
+            <p className={styles.listnum}>4.16</p>
+            <PlayArrowIcon className={styles.listicon} />
           </div>
 
-          <div className={itemsStyles.itemContainer}>
-            <div className={musicStyles.details}>
+          <div className={styles.itemContainer}>
+            <div className={styles.details}>
               <Avatar
                 variant="square"
                 alt="Cindy Baker"
@@ -62,12 +54,12 @@ const Searchlist = () => {
               </div>
             </div>
 
-            <p className={listnumStyles.listnum}>4.16</p>
-            <PlayArrowIcon className={listiconStyles.listicon} />
+            <p className={styles.listnum}>4.16</p>
+            <PlayArrowIcon className={styles.listicon} />
           </div>
 
-          <div className={itemsStyles.itemContainer}>
-            <div className={musicStyles.details}>
+          <div className={styles.itemContainer}>
+            <div className={styles.details}>
               <Avatar
                 variant="square"
                 alt="Cindy Baker"
@@ -79,12 +71,12 @@ const Searchlist = () => {
               </div>
             </div>
 
-            <p className={listnumStyles.listnum}>4.16</p>
-            <PlayArrowIcon className={listiconStyles.listicon} />
+            <p className={styles.listnum}>4.16</p>
+            <PlayArrowIcon className={styles.listicon} />
           </div>
 
-          <div className={itemsStyles.itemContainer}>
-            <div className={musicStyles.details}>
+          <div className={styles.itemContainer}>
+            <div className={styles.details}>
               <Avatar
                 variant="square"
                 alt="Cindy Baker"
@@ -96,12 +88,12 @@ const Searchlist = () => {
               </div>
             </div>
 
-            <p className={listnumStyles.listnum}>4.16</p>
-            <PlayArrowIcon className={listiconStyles.listicon} />
+            <p className={styles.listnum}>4.16</p>
+            <PlayArrowIcon className={styles.listicon} />
           </div>
 
-          <div className={itemsStyles.itemContainer}>
-            <div className={musicStyles.details}>
+          <div className={styles.itemContainer}>
+            <div className={styles.details}>
               <Avatar
                 variant="square"
                 alt="Cindy Baker"
@@ -113,8 +105,8 @@ const Searchlist = () => {
               </div>
             </div>
 
-            <p className={listnumStyles.listnum}>4.16</p>
-            <PlayArrowIcon className={listiconStyles.listicon} />
+            <p className={styles.listnum}>4.16</p>
+            <PlayArrowIcon className={styles.listicon} />
           </div>
         </div>
       </Layout>

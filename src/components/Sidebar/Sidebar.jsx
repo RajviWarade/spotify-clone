@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./Sidebar.module.css";
-import Sidemenu from "./sidemenu";
+import Sidemenu from "../Sidebar/Sidemenu/Sidemenu";
 
 const Sidebar = () => {
   return (

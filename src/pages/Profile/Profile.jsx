@@ -1,10 +1,8 @@
 import React from "react";
 import Layout from "../../components/Layout/Layout";
 import Avatar from "@mui/material/Avatar";
-import profileStyles from "../Profile/Profile.module.css";
 import OpenInNewIcon from "@mui/icons-material/OpenInNew";
-import mainStyles from "../Profile/Profile.module.css";
-import imageStyles from "../Profile/Profile.module.css";
+import styles from "../Profile/Profile.module.css";
 import Button from "@mui/material/Button";
 import styled from "@emotion/styled";
 
@@ -16,13 +14,13 @@ const StyledButton = styled(Button)`
 const Profile = () => {
   return (
     <Layout>
-      <div className={mainStyles.mainContainer}>
+      <div className={styles.mainContainer}>
         <h1>Profile</h1>
-        <div className={profileStyles.profileContainer}>
+        <div className={styles.profileContainer}>
           <Avatar
             alt="Cindy Baker"
             src="https://mui.com/static/images/avatar/2.jpg"
-            className={imageStyles.image}
+            className={styles.image}
           />
           <div>
             <h4>User Display Name</h4>

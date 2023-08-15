@@ -52,8 +52,8 @@
 }
 .logout {
   display: flex;
-  position: relative;
-  top: 45%;
+  position: absolute;
+  bottom: 13vh;
   margin-left: 20px;
   cursor: pointer;
 }
